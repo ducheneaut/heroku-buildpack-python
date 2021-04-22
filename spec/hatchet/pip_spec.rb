@@ -20,7 +20,7 @@ RSpec.describe 'Pip support' do
         expect(clean_output(app.output)).to match(Regexp.new(<<~REGEX))
           remote: -----> Python app detected
           remote: -----> Installing python-#{DEFAULT_PYTHON_VERSION}
-          remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+          remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
           remote: -----> Installing SQLite3
           remote: -----> Installing requirements with pip
           remote:        Collecting urllib3
@@ -33,7 +33,7 @@ RSpec.describe 'Pip support' do
         expect(clean_output(app.output)).to include(<<~OUTPUT)
           remote: -----> Python app detected
           remote: -----> No change in requirements detected, installing from cache
-          remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+          remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
           remote: -----> Installing SQLite3
           remote: -----> Installing requirements with pip
           remote: -----> Discovering process types
@@ -54,7 +54,7 @@ RSpec.describe 'Pip support' do
           remote: -----> Python app detected
           remote: -----> Requirements file has been changed, clearing cached dependencies
           remote: -----> Installing python-#{DEFAULT_PYTHON_VERSION}
-          remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+          remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
           remote: -----> Installing SQLite3
           remote: -----> Installing requirements with pip
           remote:        Collecting urllib3
@@ -119,13 +119,6 @@ RSpec.describe 'Pip support' do
     # pysqlite package (as opposed to the newer pysqlite3) only supports Python 2.
     # This test has to be skipped on newer stacks where Python 2 is not available.
     let(:app) { Hatchet::Runner.new('spec/fixtures/requirements_pysqlite_python_2') }
-
-    include_examples 'installs successfully using pip'
-  end
-
-  context 'when using Airflow 1.10.2 with SLUGIFY_USES_TEXT_UNIDECODE set' do
-    let(:config) { { 'SLUGIFY_USES_TEXT_UNIDECODE' => 'yes' } }
-    let(:app) { Hatchet::Runner.new('spec/fixtures/requirements_airflow_1.10.2', config: config) }
 
     include_examples 'installs successfully using pip'
   end

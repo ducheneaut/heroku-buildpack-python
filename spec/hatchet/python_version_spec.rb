@@ -8,7 +8,7 @@ RSpec.shared_examples 'builds with the requested Python version' do |python_vers
       expect(clean_output(app.output)).to include(<<~OUTPUT)
         remote: -----> Python app detected
         remote: -----> Installing python-#{python_version}
-        remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+        remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
         remote: -----> Installing SQLite3
         remote: -----> Installing requirements with pip
         remote:        Collecting urllib3
@@ -82,7 +82,7 @@ RSpec.describe 'Python version support' do
             remote:  !     Python 2 has reached its community EOL. Upgrade your Python runtime to maintain a secure application as soon as possible.
             remote:        Learn More: https://devcenter.heroku.com/articles/python-2-7-eol-faq
             remote: -----> Installing python-#{LATEST_PYTHON_2_7}
-            remote: -----> Installing pip 20.1.1, setuptools 44.1.1 and wheel 0.34.2
+            remote: -----> Installing pip 20.2.4, setuptools 44.1.1 and wheel 0.36.2
             remote: -----> Installing SQLite3
             remote: -----> Installing requirements with pip
             remote:        Collecting urllib3
@@ -160,13 +160,13 @@ RSpec.describe 'Python version support' do
     include_examples 'builds with the requested Python version', LATEST_PYTHON_3_7
   end
 
-  context 'when runtime.txt contains python-3.8.8' do
+  context 'when runtime.txt contains python-3.8.9' do
     let(:app) { Hatchet::Runner.new('spec/fixtures/python_3.8') }
 
     include_examples 'builds with the requested Python version', LATEST_PYTHON_3_8
   end
 
-  context 'when runtime.txt contains python-3.9.2' do
+  context 'when runtime.txt contains python-3.9.4' do
     let(:app) { Hatchet::Runner.new('spec/fixtures/python_3.9') }
 
     include_examples 'builds with the requested Python version', LATEST_PYTHON_3_9
@@ -180,7 +180,7 @@ RSpec.describe 'Python version support' do
         expect(clean_output(app.output)).to include(<<~OUTPUT)
           remote: -----> Python app detected
           remote: -----> Installing pypy2.7-#{LATEST_PYPY_2_7}
-          remote: -----> Installing pip 20.1.1, setuptools 44.1.1 and wheel 0.34.2
+          remote: -----> Installing pip 20.2.4, setuptools 44.1.1 and wheel 0.36.2
           remote: -----> Installing SQLite3
           remote: -----> Installing requirements with pip
           remote:        Collecting urllib3
@@ -198,7 +198,7 @@ RSpec.describe 'Python version support' do
         expect(clean_output(app.output)).to include(<<~OUTPUT)
           remote: -----> Python app detected
           remote: -----> Installing pypy3.6-#{LATEST_PYPY_3_6}
-          remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+          remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
           remote: -----> Installing SQLite3
           remote: -----> Installing requirements with pip
           remote:        Collecting urllib3
@@ -240,7 +240,7 @@ RSpec.describe 'Python version support' do
           remote: -----> Found python-#{LATEST_PYTHON_3_6}, removing
           remote: -----> No change in requirements detected, installing from cache
           remote: -----> Installing python-#{LATEST_PYTHON_3_9}
-          remote: -----> Installing pip 20.1.1, setuptools 47.1.1 and wheel 0.34.2
+          remote: -----> Installing pip 20.2.4, setuptools 47.1.1 and wheel 0.36.2
           remote: -----> Installing SQLite3
           remote: -----> Installing requirements with pip
           remote:        Collecting urllib3

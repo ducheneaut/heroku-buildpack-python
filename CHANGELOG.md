@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+
+## v193 (2021-04-13)
+
+- Update pip from 20.1.1 to 20.2.4 for Python 2.7 and Python 3.5+ ([#1192](https://github.com/heroku/heroku-buildpack-python/pull/1192)).
+- Update wheel from 0.34.2 to 0.36.2 for Python 2.7 and Python 3.5+ ([#1191](https://github.com/heroku/heroku-buildpack-python/pull/1191)).
+- Support build environments where `$BUILD_DIR` is set to a symlink of `/app` ([#992](https://github.com/heroku/heroku-buildpack-python/pull/992)).
+
+## v192 (2021-04-06)
+
+- Python 3.8.9 and 3.9.4 are now available (CPython) ([#1188](https://github.com/heroku/heroku-buildpack-python/pull/1188)).
+- Use Python 3.9 as the default Python version for new apps (previously Python 3.6) ([#1187](https://github.com/heroku/heroku-buildpack-python/pull/1187)).
+- Remove Airflow `SLUGIFY_USES_TEXT_UNIDECODE` workaround ([#1186](https://github.com/heroku/heroku-buildpack-python/pull/1186)).
 - Fix grammar in the Python 2 EOL message ([#1182](https://github.com/heroku/heroku-buildpack-python/pull/1182)).
 
 ## v191 (2021-02-19)
